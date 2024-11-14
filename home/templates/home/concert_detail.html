@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/concert.css' %}">
+{% endblock %}
+{% block title %}{{ concert.name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="artist-name">{{ concert.name }}</h2>
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="image-container">
+                <img src="{{ concert.image.url }}" alt="{{ concert.name }}" class="artist-img">
+                <div class="center-hole"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h3 class="date-name">{{ concert.date|date:"F j, Y" }}</h3>
+        <h3 class="venue-name">{{ concert.venue }}</h3>
+        <a href="{{ concert.spotify }}" id="mainSpotify" style="margin: 0 25px; text-decoration: none;">
+            <img src="{% static 'home/images/spotify.png' %}" alt="Spotify Logo" style="width: 50px; margin: 0 10px;">
+        </a>
+        <a href="{{ concert.instagram }}" id="mainInstagram" style="margin: 0 25px; text-decoration: none;">
+            <img src="{% static 'home/images/insta3.png' %}" alt="Instagram Logo" style="width: 50px; margin: 0 10px;">
+        </a>        
+        <p>{{ concert.description }}</p>
+    </div>
+</div>
+{% endblock %}

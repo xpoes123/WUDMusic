@@ -103,14 +103,28 @@
     }
 }
 
-.logo {
-    text-decoration: none; /* Remove underline for logo images */
-    width:50px;
+/* Remove underlines and set color for all link states */
+#mainSpotify, #mainInstagram {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent */
+    margin-right: 25px;
+    margin-left: 25px;
 }
 
-#mainSpotify, #mainInstagram {
-    text-decoration: none; /* Remove underline for anchor links */
-    color: inherit; /* Inherit color so it doesn’t appear purple or blue */
-    margin-right:25px;
-    margin-left:25px;
+#mainSpotify:hover, #mainInstagram:hover,
+#mainSpotify:visited, #mainInstagram:visited,
+#mainSpotify:active, #mainInstagram:active {
+    text-decoration: none; /* Ensure no underline on all states */
+    color: inherit; /* Prevent any default link colors */
+}
+
+/* Alternatively, apply directly to the .logo2 class */
+.logo2 {
+    text-decoration: none; /* Remove underline */
+    width: 50px;
+}
+
+.logo2:hover, .logo2:visited, .logo2:active {
+    text-decoration: none; /* Ensure no underline */
+    color: inherit; /* Prevent default link colors */
 }

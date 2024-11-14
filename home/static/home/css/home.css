@@ -54,6 +54,7 @@
 }
 
 .preview-image {
+    margin:25px;
     width: 100px;
     height: auto;
     border-radius:50%;

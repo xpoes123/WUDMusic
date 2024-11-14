@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/calendar.css' %}">
+{% endblock %}
+{% block title %}Calendar{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <a href="{% url 'home:calendar_month' prev_year prev_month %}" class="arrow">&#9664;</a>
+            <h2>{{ month_name }} {{ year }}</h2>
+            <a href="{% url 'home:calendar_month' next_year next_month %}" class="arrow">&#9654;</a>
+        </div>
+        
+        <div class="calendar-grid">
+            {% for week_row in dates_grid %}
+                {% for date_info in week_row %}
+                    <div class="calendar-day">
+                        {% if date_info %}
+                            <span class="day">{{ date_info.day_name }}</span>
+                            <span class="date">{{ date_info.day_num }}</span>
+
+                            <!-- Display each concert scheduled for this date -->
+                            {% if date_info.concerts %}
+                                <ul class="concert-list">
+                                    {% for concert in date_info.concerts %}
+                                    <li class="concert-item">
+                                        <a href="#" class="concert-link">{{ concert.name }}</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p class="no-concert">No concerts</p>
+                            {% endif %}
+                        {% else %}
+                            <!-- Placeholder for empty cell -->
+                            <div class="empty-cell"></div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

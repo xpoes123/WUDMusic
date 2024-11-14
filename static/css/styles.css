@@ -293,3 +293,48 @@ form {
 .hero .login_btn:hover {
     background-color: #006f33; /* Darker green */
 }
+
+
+/* Basic styling for nav links */
+.nav-left, .nav-right {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+/* Dropdown styling */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none; /* Hide dropdown by default */
+    position: absolute;
+    top: 100%; /* Position dropdown below the parent */
+    left: 0;
+    background-color: #2b2b2b; /* Background color for dropdown */
+    padding: 10px 0;
+    list-style: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-menu li {
+    padding: 8px 20px;
+}
+
+.dropdown-menu li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #00833e;
+    color: #fff;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}

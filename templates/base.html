@@ -23,17 +23,30 @@
         <nav aria-label="Main Navigation">
             <!-- Left Navigation Links -->
             <ul class="nav-left">
-                <li>
-                    <a href="{% url 'home:home' %}" class="login_btn">Calender</a>
+                <li><a href="{% url 'home:calendar' %}" class="nav-link">Events</a></li>
+                <li class="dropdown">
+                    <a href="{% url 'home:home' %}" class="login_btn">Venues</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'home:home' %}">Terrace</a></li>
+                        <li><a href="{% url 'home:home' %}">Rath</a></li>
+                        <li><a href="{% url 'home:home' %}">Sett</a></li>
+                        <li><a href="{% url 'home:home' %}">Great Hall</a></li>
+                    </ul>
                 </li>
-                <li>
+                <li class="dropdown">
+                    <a href="{% url 'home:home' %}" class="login_btn">Playlists</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'home:home' %}">WUD Weekly</a></li>
+                        <li><a href="{% url 'home:home' %}">Upcoming Show Mix</a></li>
+                        <li><a href="{% url 'home:home' %}">AD Picks</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
                     <a href="{% url 'home:home' %}" class="login_btn">Photos</a>
-                </li>
-                <li>
-                    <a href="{% url 'home:home' %}" class="login_btn">Venues</a>
-                </li>
-                <li>
-                    <a href="{% url 'home:home' %}" class="login_btn">Venues</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'home:home' %}">View Photos</a></li>
+                        <li><a href="{% url 'home:home' %}">Submit Photos</a></li>
+                    </ul>
                 </li>
             </ul>
             
@@ -43,8 +56,15 @@
                     <a href="{% url 'home:home' %}" class="login_btn"><img src="{% static 'images/wud.png' %}" alt="DayTour.png"></a>
                 </div>
             </div>
-            
             <ul class="nav-right">
+                <li class="dropdown">
+                    <a href="{% url 'home:home' %}" class="login_btn">FAQ</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'home:home' %}">Students</a></li>
+                        <li><a href="{% url 'home:home' %}">Artists/Agents</a></li>
+                        <li><a href="{% url 'home:home' %}">Media</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="{% url 'home:home' %}" class="login_btn">Get Involved</a>
                     <ul class="dropdown-menu">
