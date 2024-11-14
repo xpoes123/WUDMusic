@@ -92,3 +92,6 @@ def calendar_view(request, year=None, month=None):
 def concert_detail(request, concert_id):
     concert = get_object_or_404(Concert, id=concert_id)
     return render(request, 'home/concert_detail.html', {'concert': concert})
+
+def wip(request):
+    return render(request, 'home/wip.html', {})
