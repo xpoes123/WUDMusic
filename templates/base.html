@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}WUD Music{% endblock %}</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/wud.png' %}">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    
+    {% block extra_head %}
+    <!-- Where the template extra header goes -->
+    {% endblock %}
+</head>
+<body>
+<header>
+    {% block header %}
+        <nav aria-label="Main Navigation">
+            <!-- Left Navigation Links -->
+            <ul class="nav-left">
+                <li>
+                    <a href="{% url 'home:home' %}" class="login_btn">Calender</a>
+                </li>
+                <li>
+                    <a href="{% url 'home:home' %}" class="login_btn">Photos</a>
+                </li>
+                <li>
+                    <a href="{% url 'home:home' %}" class="login_btn">Contact Us</a>
+                </li>
+                <li>
+                    <a href="{% url 'home:home' %}" class="login_btn">FAQ</a>
+                </li>
+            </ul>
+            
+            <div class="nav-center">
+                <h1 class="site-title">WUD Music</h1>
+                <div class="logo">
+                    <a href="{% url 'home:home' %}" class="login_btn"><img src="{% static 'images/wud.png' %}" alt="DayTour.png"></a>
+                </div>
+            </div>
+            
+            <ul class="nav-right">
+                    <li>
+                        <a href="{% url 'home:home' %}" class="username-link">Hello!</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'home:home' %}">Logout</a>
+                    </li>
+            </ul>
+        </nav>
+    {% endblock %}
+</header>
+
+    <main>
+        {% block content %}
+        <!-- Content from child templates will be injected here -->
+        {% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        {% block footer %}
+        <p>&copy; {% now "Y" %} WUDMusic. All rights reserved.</p>
+        {% endblock %}
+    </footer>
+    
+    <!-- JavaScript -->
+    {% block extra_js %}
+    <!-- Additional JavaScript can be added by extending templates -->
+    {% endblock %}
+</body>
+</html>

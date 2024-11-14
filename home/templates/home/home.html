@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 id="mainName" class="artist-name"></h2> 
+    <div class="carousel-container">
+        <img src="" alt="Previous Image" class="preview-image" id="prevImage">
+        <button id="prevBtn" class="carousel-arrow">&#9664;</button> <!-- Left Arrow -->
+
+        <div class="carousel">
+            <div class="image-container">
+                <img src="" alt="Main Image" class="artist-img" id="mainImage">
+                <div class="center-hole">
+                </div>
+            </div>
+        </div>
+
+        <button id="nextBtn" class="carousel-arrow">&#9654;</button> <!-- Right Arrow -->
+        <img src="" alt="Next Image" class="preview-image" id="nextImage">
+    </div>
+    <div class="hero">
+        <h3 id="mainDate" class="date-name"></h3> 
+        <h3 id="mainVenue" class="venue-name"></h3>
+        <a id="mainSpotify" href="#" target="_blank">
+            <img src="{% static 'home/images/spotify.png' %}" class="logo" alt="Spotify Logo">
+        </a>
+        <a id="mainInstagram" href="#" target="_blank">
+            <img src="{% static 'home/images/insta3.png' %}" class="logo" alt="Instagram Logo">
+        </a>
+        <p id="mainDesc"></p>
+    </div>
+</div>
+
+<!-- Embed concerts JSON data as a hidden element -->
+<script type="application/json" id="concertsData">{{ concerts_json|safe }}</script>
+
+{% block extra_js %}
+<script>
+    // Retrieve and parse the concert data from the hidden JSON element
+    const concertsDataElement = document.getElementById('concertsData');
+    const concerts = JSON.parse(concertsDataElement.textContent);
+
+    console.log("Concert data loaded:", concerts);
+
+    let currentIndex = 0;
+    const mainImage = document.getElementById('mainImage');
+    const mainName = document.getElementById('mainName');
+    const mainDate = document.getElementById('mainDate');
+    const mainVenue = document.getElementById('mainVenue');
+    const mainSpotify = document.getElementById('mainSpotify');
+    const mainInstagram = document.getElementById('mainInstagram');
+    const mainDesc = document.getElementById('mainDesc')
+
+    const prevImage = document.getElementById('prevImage');
+    const nextImage = document.getElementById('nextImage');
+
+    const updateImages = () => {
+        if (currentIndex >= 0 && currentIndex < concerts.length) {
+            const currentConcert = concerts[currentIndex];
+            mainImage.src = currentConcert.image || "{% static 'home/images/default.jpg' %}";
+            mainName.textContent = currentConcert.name;
+            mainVenue.textContent = currentConcert.venue;
+            mainSpotify.href = currentConcert.spotify || "#";
+            mainInstagram.href = currentConcert.instagram || "#";
+            mainDesc.textContent = currentConcert.description || "No Description Provided";
+
+            if (currentConcert.date) {
+                const concertDate = new Date(currentConcert.date);
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                mainDate.textContent = concertDate.toLocaleDateString(undefined, options);
+            } else {
+                mainDate.textContent = 'Date not available';
+            }
+
+            const prevIndex = (currentIndex - 1 + concerts.length) % concerts.length;
+            const nextIndex = (currentIndex + 1) % concerts.length;
+
+            prevImage.src = concerts[prevIndex].image || "{% static 'home/images/default.jpg' %}";
+            nextImage.src = concerts[nextIndex].image || "{% static 'home/images/default.jpg' %}";
+        } else {
+            console.error("Invalid currentIndex:", currentIndex);
+        }
+    };
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + concerts.length) % concerts.length;
+        updateImages();
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % concerts.length;
+        updateImages();
+    });
+
+    updateImages();
+</script>
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,115 @@
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.artist-img {
+    width: 300px;
+    border-radius: 50%;
+    animation: spin 10s linear infinite;
+
+}
+
+.center-hole {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px; /* Adjust size for the hole */
+    height: 100px;
+    background-color: #1a1a1a; /* Matches background color */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ensures it appears on top of the spinning image */
+    outline: 10px solid rgb(75, 74, 74);
+}
+
+.carousel-arrow {
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    padding: 0 10px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale */
+}
+
+.carousel-arrow:hover {
+    color: #00833e; /* Change color on hover */
+    transform:  scale(1.2); /* Slightly increase the size */
+}
+
+.preview-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.preview-image {
+    width: 100px;
+    height: auto;
+    border-radius:50%;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.preview-image:hover {
+    opacity: 1;
+}
+
+/* Spin animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.container {
+    width: 100%; /* Full width */
+    max-width: 600px; /* Increase max width to allow more content */
+    margin: 50px auto;
+    padding: 30px;
+    text-align: center;
+    background-color: #2b2b2b; /* Dark gray background */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: #e0e0e0; /* Light text */
+}
+
+.hero {
+    margin-top: 0; /* Remove the top margin */
+    padding-top: 20px; /* Optional: adjust padding for more control */
+}
+
+.container .hero {
+    margin-top: 20px; /* Adjust this value if necessary to create balanced spacing */
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 15px; /* Adjust padding on smaller screens */
+    }
+}
+
+.logo {
+    text-decoration: none; /* Remove underline for logo images */
+    width:50px;
+}
+
+#mainSpotify, #mainInstagram {
+    text-decoration: none; /* Remove underline for anchor links */
+    color: inherit; /* Inherit color so it doesn’t appear purple or blue */
+    margin-right:25px;
+    margin-left:25px;
+}
