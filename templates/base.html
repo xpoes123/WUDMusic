@@ -30,10 +30,10 @@
                     <a href="{% url 'home:home' %}" class="login_btn">Photos</a>
                 </li>
                 <li>
-                    <a href="{% url 'home:home' %}" class="login_btn">Contact Us</a>
+                    <a href="{% url 'home:home' %}" class="login_btn">Venues</a>
                 </li>
                 <li>
-                    <a href="{% url 'home:home' %}" class="login_btn">FAQ</a>
+                    <a href="{% url 'home:home' %}" class="login_btn">Venues</a>
                 </li>
             </ul>
             
@@ -45,13 +45,16 @@
             </div>
             
             <ul class="nav-right">
-                    <li>
-                        <a href="{% url 'home:home' %}" class="username-link">Hello!</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'home:home' %}">Logout</a>
-                    </li>
+                <li class="dropdown">
+                    <a href="{% url 'home:home' %}" class="login_btn">Get Involved</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'home:home' %}">Meetings</a></li>
+                        <li><a href="{% url 'home:home' %}">About Us</a></li>
+                        <li><a href="{% url 'home:home' %}">Contact</a></li>
+                    </ul>
+                </li>
             </ul>
+            
         </nav>
     {% endblock %}
 </header>

@@ -34,6 +34,45 @@ nav {
     text-align: center;
     margin-bottom: 5px;
 }
+/* Style the main dropdown link */
+.nav-right .dropdown {
+    position: relative;
+}
+
+/* Hide the dropdown menu initially */
+.nav-right .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position it below the main link */
+    left: 0;
+    background-color: #2b2b2b; /* Background color of the dropdown */
+    padding: 10px 0;
+    list-style: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Show dropdown on hover */
+.nav-right .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Style each dropdown item */
+.nav-right .dropdown-menu li {
+    padding: 8px 20px;
+}
+
+.dropdown-menu li a {
+    color: #e0e0e0; /* Light text color */
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #00833e; /* Highlight on hover */
+    color: #fff;
+}
+
 
 .site-title {
     font-size: 1.3em;
