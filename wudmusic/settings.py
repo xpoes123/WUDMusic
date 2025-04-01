@@ -39,10 +39,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'wudmusic.herokuapp.com',
-    'wudmusic-bee92661c8ff.herokuapp.com',  # Add this line
+    'wudmusic-bee92661c8ff.herokuapp.com',  # required for new Heroku-generated domain
     'localhost',
     '127.0.0.1',
 ]
+
 
 
 
@@ -149,7 +150,5 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=True, cast=bool)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-ALLOWED_HOSTS += ['127.0.0.1']
 
 django_heroku.settings(locals())
