@@ -24,28 +24,20 @@
             <!-- Left Navigation Links -->
             <ul class="nav-left">
                 <li><a href="{% url 'home:calendar' %}" class="nav-link">Events</a></li>
+                <li><a href="{% url 'home:venues' %}" class="nav-link">Venues</a></li>
                 <li class="dropdown">
-                    <a href="{% url 'home:wip' %}" class="login_btn">Venues</a>
+                    <a class="login_btn">Playlists</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{% url 'home:wip' %}">Terrace</a></li>
-                        <li><a href="{% url 'home:wip' %}">Rath</a></li>
-                        <li><a href="{% url 'home:wip' %}">Sett</a></li>
-                        <li><a href="{% url 'home:wip' %}">Great Hall</a></li>
+                        <li><a href="{% url 'home:wud_playlist' %}">WUD Weekly</a></li>
+                        <li><a href="{% url 'home:show_mix' %}">Upcoming Show Mix</a></li>
+                        <li><a href="{% url 'home:ad_picks' %}">AD Picks</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="{% url 'home:wip' %}" class="login_btn">Playlists</a>
+                    <a class="login_btn">Photos</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{% url 'home:wip' %}">WUD Weekly</a></li>
-                        <li><a href="{% url 'home:wip' %}">Upcoming Show Mix</a></li>
-                        <li><a href="{% url 'home:wip' %}">AD Picks</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="{% url 'home:wip' %}" class="login_btn">Photos</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'home:wip' %}">View Photos</a></li>
-                        <li><a href="{% url 'home:wip' %}">Submit Photos</a></li>
+                        <li><a href="{% url 'home:photos' %}">Photos</a></li>
+                        <li><a href="{% url 'home:submit_photos' %}">Submit Photos</a></li>
                     </ul>
                 </li>
             </ul>
@@ -57,20 +49,13 @@
                 </div>
             </div>
             <ul class="nav-right">
+                <li><a href="{% url 'home:faq' %}" class="nav-link">FAQ</a></li>
                 <li class="dropdown">
-                    <a href="{% url 'home:wip' %}" class="login_btn">FAQ</a>
+                    <a class="login_btn">Get Involved</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{% url 'home:wip' %}">Students</a></li>
-                        <li><a href="{% url 'home:wip' %}">Artists/Agents</a></li>
-                        <li><a href="{% url 'home:wip' %}">Media</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="{% url 'home:wip' %}" class="login_btn">Get Involved</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'home:wip' %}">Meetings</a></li>
-                        <li><a href="{% url 'home:wip' %}">About Us</a></li>
-                        <li><a href="{% url 'home:wip' %}">Contact</a></li>
+                        <li><a href="{% url 'home:meetings' %}">Meetings</a></li>
+                        <li><a href="{% url 'home:about' %}">About Us</a></li>
+                        <li><a href="{% url 'home:contact' %}">Contact</a></li>
                     </ul>
                 </li>
             </ul>

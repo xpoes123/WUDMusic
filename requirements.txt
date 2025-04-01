@@ -1,13 +1,40 @@
+aiohappyeyeballs==2.4.6
+aiohttp==3.11.13
+aiosignal==1.3.2
+altgraph @ file:///AppleInternal/Library/BuildRoots/2c89a47b-9dd5-11ef-938f-6e654a286000/Library/Caches/com.apple.xbs/Sources/python3/altgraph-0.17.2-py2.py3-none-any.whl
 asgiref==3.8.1
+async-timeout==5.0.1
+attrs==25.1.0
+contourpy==1.3.0
+cycler==0.12.1
+discord.py==2.5.0
 dj-database-url==2.3.0
-django==4.2.20
+Django==4.2.20
 django-heroku==0.3.1
+fonttools==4.55.8
+frozenlist==1.5.0
+future @ file:///AppleInternal/Library/BuildRoots/2c89a47b-9dd5-11ef-938f-6e654a286000/Library/Caches/com.apple.xbs/Sources/python3/future-0.18.2-py3-none-any.whl
 gunicorn==23.0.0
+idna==3.10
+importlib_resources==6.5.2
+kiwisolver==1.4.7
+macholib @ file:///AppleInternal/Library/BuildRoots/2c89a47b-9dd5-11ef-938f-6e654a286000/Library/Caches/com.apple.xbs/Sources/python3/macholib-1.15.2-py2.py3-none-any.whl
+matplotlib==3.9.4
+multidict==6.1.0
+numpy==2.0.2
 packaging==24.2
 pillow==11.2.0
+propcache==0.3.0
 psycopg-binary==3.2.6
 psycopg2==2.9.10
 psycopg2-binary==2.9.10
+pyparsing==3.2.1
+python-dateutil==2.9.0.post0
+six @ file:///AppleInternal/Library/BuildRoots/2c89a47b-9dd5-11ef-938f-6e654a286000/Library/Caches/com.apple.xbs/Sources/python3/six-1.15.0-py2.py3-none-any.whl
 sqlparse==0.5.1
 typing_extensions==4.12.2
+uv==0.6.3
 whitenoise==6.8.2
+yarl==1.18.3
+yt-dlp==2025.2.19
+zipp==3.21.0

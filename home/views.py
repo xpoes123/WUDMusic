@@ -25,7 +25,7 @@ def home(request):
         }
         for concert in concerts
     ]
-    
+
     context = {
         'concerts_json': json.dumps(concerts_list)  # Pass serialized data as JSON
     }
@@ -93,6 +93,36 @@ def calendar_view(request, year=None, month=None):
 def concert_detail(request, concert_id):
     concert = get_object_or_404(Concert, id=concert_id)
     return render(request, 'home/concert_detail.html', {'concert': concert})
+
+def venues(request):
+    return render(request, 'home/venues.html', {})
+
+def show_mix(request):
+    return render(request, 'home/show_mix.html', {})
+
+def wud_playlist(request):
+    return render(request, 'home/wud_playlist.html', {})
+
+def ad_picks(request):
+    return render(request, 'home/ad_picks.html', {})
+
+def photos(request):
+    return render(request, 'home/photos.html', {})
+
+def submit_photos(request):
+    return render(request, 'home/submit_photos.html', {})
+
+def faq(request):
+    return render(request, 'home/faq.html', {})
+
+def meetings(request):
+    return render(request, 'home/meetings.html', {})
+
+def about(request):
+    return render(request, 'home/about.html', {})
+
+def contact(request):
+    return render(request, 'home/contact.html', {})
 
 def wip(request):
     return render(request, 'home/wip.html', {})
