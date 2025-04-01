@@ -37,8 +37,12 @@ SECRET_KEY = 'django-insecure--9vb0-n@v^(v%y(akjf%z%%0y*xe2)w=9s$r1o%(fyk(ta@=zk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['wudmusic.herokuapp.com', 'localhost']
-ALLOWED_HOSTS += ['127.0.0.1']
+ALLOWED_HOSTS = [
+    'wudmusic.herokuapp.com',
+    'wudmusic-bee92661c8ff.herokuapp.com',  # Add this line
+    'localhost',
+    '127.0.0.1',
+]
 
 
 
