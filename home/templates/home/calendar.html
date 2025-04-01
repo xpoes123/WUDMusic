@@ -28,7 +28,7 @@
                                 <ul class="concert-list">
                                     {% for concert in date_info.concerts %}
                                     <li class="concert-item">
-                                        <a href="#" class="concert-link">{{ concert.name }}</a>
+                                        <a href="{% url 'home:concert_detail' concert.id %}" class="concert-link">{{ concert.name }}</a>
                                     </li>
                                     {% endfor %}
                                 </ul>

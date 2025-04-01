@@ -4,6 +4,7 @@ from .models import Concert
 from datetime import datetime, timedelta
 import calendar
 import json
+from PIL import Image
 
 def printj(json_file):
     """Debugging tool"""
@@ -24,7 +25,7 @@ def home(request):
         }
         for concert in concerts
     ]
-
+    
     context = {
         'concerts_json': json.dumps(concerts_list)  # Pass serialized data as JSON
     }
