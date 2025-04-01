@@ -2,7 +2,7 @@ from .base import *
 import dj_database_url
 import django_heroku
 
-DEBUG = False
+DEBUG = True
 SECRET_KEY = os.getenv('SECRET_KEY')
 ALLOWED_HOSTS = ['wudmusic.herokuapp.com', 'wudmusic-bee92661c8ff.herokuapp.com']
 
