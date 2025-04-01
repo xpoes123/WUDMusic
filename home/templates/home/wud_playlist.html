@@ -3,8 +3,72 @@
 
 {% block extra_head %}
     <link rel="stylesheet" type="text/css" href="{% static 'home/css/home.css' %}">
+    <style>
+        .playlist-section {
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+    
+        .playlist-row {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+    
+        .playlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 1200px;
+        }
+    
+        .playlist-iframe {
+            border-radius: 12px;
+            width: 300px;  /* Fixed width works better for side-by-side */
+            height: 352px;
+            border: none;
+            flex-shrink: 0;
+        }
+    </style>
+    
 {% endblock %}
-{% block title %}WUD Playlist{% endblock %}
-{% block content %}
 
+{% block title %}WUD Playlist{% endblock %}
+
+{% block content %}
+<div class="playlist-section">
+
+    <!-- Top row: First and third playlist -->
+    <div class="playlist-row">
+        <iframe class="playlist-iframe"
+            src="https://open.spotify.com/embed/playlist/5458YDprSXp1nejCYRCu9b?utm_source=generator"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+        </iframe>
+
+        <iframe class="playlist-iframe"
+            src="https://open.spotify.com/embed/playlist/2pvmd5KanIgktPJpvyuIsu?utm_source=generator"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+        </iframe>
+    </div>
+
+    <!-- Bottom grid of placeholders -->
+    <div class="playlist-grid">
+    {% for i in placeholders %}
+        <iframe class="playlist-iframe"
+            src="https://open.spotify.com/embed/playlist/6Ibgnr48kcNCjL9DwIVkiS?utm_source=generator"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+        </iframe>
+    {% endfor %}
+    
+    </div>
+
+</div>
 {% endblock %}

@@ -25,14 +25,7 @@
             <ul class="nav-left">
                 <li><a href="{% url 'home:calendar' %}" class="nav-link">Events</a></li>
                 <li><a href="{% url 'home:venues' %}" class="nav-link">Venues</a></li>
-                <li class="dropdown">
-                    <a class="login_btn">Playlists</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'home:wud_playlist' %}">WUD Weekly</a></li>
-                        <li><a href="{% url 'home:show_mix' %}">Upcoming Show Mix</a></li>
-                        <li><a href="{% url 'home:ad_picks' %}">AD Picks</a></li>
-                    </ul>
-                </li>
+                <li><a href="{% url 'home:wud_playlist' %}" class="nav-link">Playlists</a></li>
                 <li class="dropdown">
                     <a class="login_btn">Photos</a>
                     <ul class="dropdown-menu">

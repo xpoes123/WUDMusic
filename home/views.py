@@ -97,14 +97,12 @@ def concert_detail(request, concert_id):
 def venues(request):
     return render(request, 'home/venues.html', {})
 
-def show_mix(request):
-    return render(request, 'home/show_mix.html', {})
-
+# views.py
 def wud_playlist(request):
-    return render(request, 'home/wud_playlist.html', {})
+    placeholder_count = 10
+    placeholders = range(placeholder_count)
+    return render(request, "home/wud_playlist.html", {"placeholders": placeholders})
 
-def ad_picks(request):
-    return render(request, 'home/ad_picks.html', {})
 
 def photos(request):
     return render(request, 'home/photos.html', {})
