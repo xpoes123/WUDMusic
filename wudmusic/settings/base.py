@@ -10,7 +10,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-ALLOWED_HOSTS = [ 'wudmusic-bee92661c8ff.herokuapp.com']
+ALLOWED_HOSTS = ['wudmusic.herokuapp.com', 'wudmusic-bee92661c8ff.herokuapp.com', 'wudmusic.com', 'www.wudmusic.com',]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
