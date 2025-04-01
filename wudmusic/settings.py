@@ -93,16 +93,3 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
-
-# Default primary key field type
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Secure settings for Heroku
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=not DEBUG, cast=bool)
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
-
-# Ensure ALLOWED_HOSTS is set correctly after django_heroku adjusts settings
-ALLOWED_HOSTS = ['wudmusic.herokuapp.com', 'wudmusic-bee92661c8ff.herokuapp.com', 'localhost', '127.0.0.1']
