@@ -95,9 +95,15 @@ def concert_detail(request, concert_id):
     return render(request, 'home/concert_detail.html', {'concert': concert})
 
 def venues(request):
-    return render(request, 'home/venues.html', {})
+    venue_list = [
+        {'name': 'Terrace'},
+        {'name': 'Rathskeller'},
+        {'name': 'Sett'},
+        {'name': 'Playcircle'},
+    ]
+    return render(request, 'home/venues.html', {'venues': venue_list})
 
-# views.py
+
 def wud_playlist(request):
     placeholder_count = 10
     placeholders = range(placeholder_count)

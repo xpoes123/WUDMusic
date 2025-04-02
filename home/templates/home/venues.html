@@ -2,9 +2,142 @@
 {% load static %}
 
 {% block extra_head %}
-    <link rel="stylesheet" type="text/css" href="{% static 'home/css/home.css' %}">
-{% endblock %}
-{% block title %}Venues{% endblock %}
-{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/css/home.css' %}">
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
 
+    .venue-section {
+        background-color: #2b2b2b;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+        padding: 40px 30px;
+        margin-bottom: 60px;
+        transition: transform 0.2s ease;
+    }
+
+    .venue-section:hover {
+        transform: translateY(-4px);
+    }
+
+    .venue-title {
+        font-size: 2.5em;
+        color: #00ff80;
+        text-align: center;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+    }
+
+    .venue-gallery {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+    }
+
+    .venue-gallery img {
+        width: 320px;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    .venue-gallery img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 131, 62, 0.8);
+}
+
+.arrow.left { left: 10px; }
+.arrow.right { right: 10px; }
+
+@media (max-width: 600px) {
+    .venue-gallery img {
+        width: 260px;
+        height: 260px;
+    }
+
+    .arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 1.5rem;
+    }
+
+    .arrow.left { left: 5px; }
+    .arrow.right { right: 5px; }
+}
+
+</style>
+{% endblock %}
+
+{% block title %}Venues{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for venue in venues %}
+    <div class="venue-section">
+        <h2 class="venue-title">{{ venue.name }}</h2>
+
+        <div class="venue-gallery" id="gallery-{{ forloop.counter }}">
+            <button class="arrow left" onclick="prevImage({{ forloop.counter }})">&#8592;</button>
+            <img src="{% static 'home/images/wud.png' %}" id="image-{{ forloop.counter }}" alt="{{ venue.name }} photo">
+            <button class="arrow right" onclick="nextImage({{ forloop.counter }})">&#8594;</button>
+        </div>
+
+        <p class="venue-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut dignissim orci. Sed venenatis lacus id luctus gravida. Cras eget nibh et justo blandit fermentum nec sit amet elit. Maecenas non commodo augue. Vivamus nec porta arcu. Nullam at odio nulla. Aenean non sodales purus.
+        </p>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    const imageSources = [
+        "{% static 'home/images/insta3.png' %}",
+        "{% static 'home/images/spotify.png' %}",
+        "{% static 'home/images/wud.png' %}"
+    ];
+
+    const galleryIndices = {};
+
+    function nextImage(galleryId) {
+        if (!(galleryId in galleryIndices)) galleryIndices[galleryId] = 0;
+        galleryIndices[galleryId] = (galleryIndices[galleryId] + 1) % imageSources.length;
+        document.getElementById(`image-${galleryId}`).src = imageSources[galleryIndices[galleryId]];
+    }
+
+    function prevImage(galleryId) {
+        if (!(galleryId in galleryIndices)) galleryIndices[galleryId] = 0;
+        galleryIndices[galleryId] = (galleryIndices[galleryId] - 1 + imageSources.length) % imageSources.length;
+        document.getElementById(`image-${galleryId}`).src = imageSources[galleryIndices[galleryId]];
+    }
+</script>
 {% endblock %}
